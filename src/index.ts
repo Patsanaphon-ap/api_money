@@ -5,7 +5,7 @@ import env from "./config/env.config"
 
 import { notFoundHandler } from "./middlewares";
 
-import { profileRouter , transferRouter } from "./routers";
+import { profileRouter , transferRouter, exchangeRouter} from "./routers";
 
 const app = express();
 
@@ -25,6 +25,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use(jsonParser);
 app.use(urlencoded);
 
+app.use("/exchange", exchangeRouter);
 app.use("/profile", profileRouter);
 app.use("/money", transferRouter);
 

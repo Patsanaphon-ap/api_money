@@ -4,7 +4,6 @@ import { QueryTypes } from "sequelize";
 export const getprofile = async (req, res, next) => {
     try {    
         const { userid } = req.body;
-        console.log(userid);
         const joinSection: any = await sequelize.query(
             `SELECT userid,first_name,last_name,mobilephone,balance
             FROM user_member
